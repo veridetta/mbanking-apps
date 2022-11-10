@@ -20,6 +20,7 @@ import com.example.hinadadebank.api.Client;
 import com.example.hinadadebank.api.Interface;
 import com.example.hinadadebank.model.UserData;
 import com.example.hinadadebank.model.UserResponse;
+import com.example.hinadadebank.unverif.UploadActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,14 +40,33 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         //hide action bar
         hideTaskbar();
+        haslogin();
         //initial view
         initialView();
         mApiInterface = Client.getClient().create(Interface.class);
-
     }
 
     public void hideTaskbar(){
         getSupportActionBar().hide();
+    }
+    void haslogin(){
+        SharedPreferences sgSharedPref = getApplicationContext().getSharedPreferences("sg_shared_pref", getApplicationContext().MODE_PRIVATE);
+        Boolean haslogin = sgSharedPref.getBoolean("login",false);
+        String status = sgSharedPref.getString("status","unverif");
+        if(haslogin){
+            checkStatus(status);
+        }
+    }
+    void checkStatus(String status){
+        if(status.equals("unverif")){
+            Intent nn = new Intent(LoginActivity.this, UploadActivity.class);
+            startActivity(nn);
+            finish();
+        }else{
+            Intent nn = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(nn);
+            finish();
+        }
     }
     void initialView(){
         txEmail = findViewById(R.id.tx_email);
@@ -86,10 +106,9 @@ public class LoginActivity extends AppCompatActivity {
                                     editor.putInt("id",response.body().getData().getId());
                                     editor.putString("name",response.body().getData().getName());
                                     editor.putString("email",response.body().getData().getEmail());
+                                    editor.putString("status",response.body().getData().getStatus());
                                     editor.apply();
-                                    Intent nn = new Intent(LoginActivity.this, MainActivity.class);
-                                    nn.putExtra("name", nama);
-                                    startActivity(nn);
+                                    checkStatus(response.body().getData().getStatus());
                                 }else{
                                     Toast.makeText(getApplicationContext() ,response.body().getMessages(),Toast.LENGTH_SHORT).show();
                                 }

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 public class UserData {
 
 	@SerializedName("nik")
-	private int nik;
+	private long nik;
 
 	@SerializedName("updated_at")
 	private String updatedAt;
@@ -17,7 +17,7 @@ public class UserData {
 	private String createdAt;
 
 	@SerializedName("tel")
-	private int tel;
+	private long tel;
 
 	@SerializedName("id")
 	private int id;
@@ -41,7 +41,7 @@ public class UserData {
 		this.nik = nik;
 	}
 
-	public int getNik(){
+	public long getNik(){
 		return nik;
 	}
 
@@ -73,7 +73,7 @@ public class UserData {
 		this.tel = tel;
 	}
 
-	public int getTel(){
+	public long getTel(){
 		return tel;
 	}
 
