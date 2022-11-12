@@ -2,26 +2,63 @@ package com.example.hinadadebank;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
+import com.example.hinadadebank.verif.HomeFragment;
+import com.example.hinadadebank.verif.MutasiFragment;
+import com.example.hinadadebank.verif.TransactionFragment;
+import com.example.hinadadebank.verif.UserFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.hinadadebank.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements  BottomNavigationView.OnNavigationItemSelectedListener{
 
-    private ActivityMainBinding binding;
-    TextView txCoba;
+    BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        txCoba = findViewById(R.id.txCoba);
-        Intent nn = getIntent();
-        txCoba.setText(nn.getStringExtra("name"));
-    }
 
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(MainActivity.this);
+        bottomNavigationView.setSelectedItemId(R.id.nav_home);
+        hideTaskbar();
+
+    }
+    HomeFragment homeFragment = new HomeFragment();
+    TransactionFragment transactionFragment = new TransactionFragment();
+    MutasiFragment mutasiFragment = new MutasiFragment();
+    UserFragment userFragment = new UserFragment();
+    public void hideTaskbar(){
+        getSupportActionBar().hide();
+    }
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.nav_home:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
+                return true;
+
+            case R.id.nav_trans:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, transactionFragment).commit();
+                return true;
+
+            case R.id.nav_mutasi:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, mutasiFragment).commit();
+                return true;
+            case R.id.nav_profile:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, userFragment).commit();
+                return true;
+        }
+        return false;
+    }
 }

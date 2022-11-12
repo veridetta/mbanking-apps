@@ -2,9 +2,9 @@
     <string name="app_name">Hinadade Bank</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="prompt_email">Email</string>
+    <string name="title_transaction">Transaksi</string>
+    <string name="title_mutasi">Mutasi</string>
+    <string name="title_akun">Akun</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>

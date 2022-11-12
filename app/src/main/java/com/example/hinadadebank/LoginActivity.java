@@ -59,9 +59,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     void checkStatus(String status){
         if(status.equals("unverif")){
-            Intent nn = new Intent(LoginActivity.this, UploadActivity.class);
-            startActivity(nn);
-            finish();
+
         }else{
             Intent nn = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(nn);
@@ -101,12 +99,14 @@ public class LoginActivity extends AppCompatActivity {
                                     SharedPreferences sgSharedPref = getApplicationContext().getSharedPreferences("sg_shared_pref", getApplicationContext().MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sgSharedPref.edit();
                                     String nama = String.valueOf(response.body().getData().getName());
+                                    String card = String.valueOf(response.body().getData().getCard());
                                     Log.d(TAG, "onResponse: "+nama);
                                     editor.putBoolean("login", true);
                                     editor.putInt("id",response.body().getData().getId());
                                     editor.putString("name",response.body().getData().getName());
                                     editor.putString("email",response.body().getData().getEmail());
                                     editor.putString("status",response.body().getData().getStatus());
+                                    editor.putString("card",card);
                                     editor.apply();
                                     checkStatus(response.body().getData().getStatus());
                                 }else{

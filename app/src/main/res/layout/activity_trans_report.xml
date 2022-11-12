@@ -28,6 +28,7 @@
                     android:orientation="vertical"
                     android:padding="@dimen/_13sdp">
                     <TextView
+                        android:id="@+id/tv_no_trans"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_13sdp"
@@ -35,6 +36,7 @@
                         android:textColor="@color/black"
                         android:text="No Trans : HBB229920" />
                     <TextView
+                        android:id="@+id/tv_tanggal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_13sdp"

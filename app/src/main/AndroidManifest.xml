@@ -29,8 +29,7 @@
         <activity
             android:name=".verif.TransReportActivity"
             android:exported="false"
-            android:label="@string/title_activity_trans_report"
-            android:theme="@style/Theme.HinadadeBank.NoActionBar" />
+            android:label="@string/title_activity_trans_report" />
         <activity
             android:name=".unverif.UploadActivity"
             android:exported="false" />

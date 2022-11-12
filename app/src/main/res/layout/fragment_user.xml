@@ -160,5 +160,6 @@
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
         <include layout="@layout/confirm_layout"/>
+        <include layout="@layout/loading_layout"/>
     </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

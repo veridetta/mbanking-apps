@@ -44,7 +44,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
-                            android:inputType="text"/>
+                            android:inputType="number"/>
                     </com.google.android.material.textfield.TextInputLayout>
                     <TextView
                         android:id="@+id/tx_name"
@@ -83,7 +83,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
-                            android:inputType="text"/>
+                            android:inputType="number"/>
                     </com.google.android.material.textfield.TextInputLayout>
                     <TextView
                         android:layout_width="match_parent"
@@ -106,7 +106,7 @@
                             android:inputType="text"/>
                     </com.google.android.material.textfield.TextInputLayout>
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btn_delete"
+                        android:id="@+id/btn_action"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
@@ -117,5 +117,6 @@
                 </LinearLayout>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
+        <include layout="@layout/loading_layout"/>
     </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

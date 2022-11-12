@@ -33,6 +33,15 @@
                     android:gravity="center"
                     android:textColor="@color/black"/>
                 <TextView
+                    android:id="@+id/users_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Users id : "
+                    android:textSize="@dimen/_18sdp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/red"/>
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Akun anda belum terverifikasi, silahkan kirimkan foto wajah anda"

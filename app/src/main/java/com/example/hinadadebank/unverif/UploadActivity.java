@@ -22,6 +22,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hinadadebank.R;
@@ -49,6 +50,7 @@ public class UploadActivity extends AppCompatActivity {
     RelativeLayout lyLoading;
     Interface mApiInterface;
     String part_image,usersId;
+    TextView tvUsersId;
     Uri selectedImage;
     Boolean hasUpload=false;
     private static final int PICK_IMAGE_REQUEST = 9544;
@@ -64,8 +66,8 @@ public class UploadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
         hideTaskbar();
-        initial();
         shared();
+        initial();
         getData();
     }
     public void hideTaskbar(){
@@ -76,7 +78,9 @@ public class UploadActivity extends AppCompatActivity {
         btnChoose = findViewById(R.id.btn_choose);
         btnUpload = findViewById(R.id.btn_upload);
         lyLoading = findViewById(R.id.ly_loading);
-
+        tvUsersId = findViewById(R.id.users_id);
+        String uid = "ID : "+usersId;
+        tvUsersId.setText(uid);
         btnChoose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -180,6 +184,9 @@ public class UploadActivity extends AppCompatActivity {
                         /*Log.v("log softgain : ", String.valueOf(response.body().getSuccess().getToken()));*/
                         Toast.makeText(getApplicationContext(),
                                 "Upload berhasil",Toast.LENGTH_SHORT).show();
+                        Intent nn = new Intent(UploadActivity.this, UploadResultActivity.class);
+                        startActivity(nn);
+                        finish();
                     }else{
                         Toast.makeText(getApplicationContext() ,response.body().getMessages(),Toast.LENGTH_SHORT).show();
                     }
