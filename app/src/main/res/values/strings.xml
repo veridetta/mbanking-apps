@@ -3,6 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_transaction">Transaksi</string>
+    <string name="copyright">@string/copyright</string>
     <string name="title_mutasi">Mutasi</string>
     <string name="title_akun">Akun</string>
     <string name="prompt_password">Password</string>
