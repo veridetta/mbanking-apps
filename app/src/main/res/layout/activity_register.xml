@@ -176,7 +176,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:gravity="center"
-                        android:text="Copyright @2022 Hanabade Bank"/>
+                        android:text="Copyright @2022 Hinadade Bank"/>
                 </LinearLayout>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
