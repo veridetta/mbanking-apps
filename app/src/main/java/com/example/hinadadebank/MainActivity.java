@@ -1,7 +1,11 @@
 package com.example.hinadadebank;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -58,7 +62,22 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
             case R.id.nav_profile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, userFragment).commit();
                 return true;
+            case R.id.nav_logout:
+                removedata();
+                move();
+                return true;
         }
         return false;
+    }
+    void removedata(){
+        SharedPreferences sgSharedPref = getApplicationContext().getSharedPreferences("sg_shared_pref", getApplicationContext().MODE_PRIVATE);
+        SharedPreferences.Editor editor = sgSharedPref.edit();
+        editor.putBoolean("login", false);
+        editor.apply();
+    }
+    void move(){
+        Intent nn = new Intent(MainActivity.this, LoginActivity.class);
+        finish();
+        startActivity(nn);
     }
 }

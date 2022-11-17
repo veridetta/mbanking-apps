@@ -10,7 +10,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Client {
-    public static final String BASE_URL = "http://192.168.1.105:8000/api/";
+    //laptop veri
+    // public static final String BASE_URL = "http://192.168.1.105:8000/api/";
+     public static final String BASE_URL = "http://hanadade.epogame.my.id/api/";
     private static Retrofit retrofit = null;
     public static Retrofit getClient() {
         if (retrofit==null) {
