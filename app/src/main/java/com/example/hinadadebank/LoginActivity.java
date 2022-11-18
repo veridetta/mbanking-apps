@@ -62,8 +62,8 @@ public class LoginActivity extends AppCompatActivity {
 
         }else{
             Intent nn = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(nn);
             finish();
+            startActivity(nn);
         }
     }
     void initialView(){

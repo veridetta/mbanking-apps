@@ -94,6 +94,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     editor.apply();
                                     Intent nn = new Intent(RegisterActivity.this, MainActivity.class);
                                     nn.putExtra("name", nama);
+                                    finish();
                                     startActivity(nn);
                                 }else{
                                     Toast.makeText(getApplicationContext() ,response.body().getMessages(),Toast.LENGTH_SHORT).show();

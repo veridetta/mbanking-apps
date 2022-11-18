@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
     }
     void move(){
         Intent nn = new Intent(MainActivity.this, LoginActivity.class);
-        finish();
         startActivity(nn);
     }
 }
